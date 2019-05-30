@@ -1,0 +1,63 @@
+//MOTOR DERECHA
+int OUTPUT4 = 16;
+int OUTPUT3 = 5;
+//MOTOR IZQUIERDA
+int OUTPUT2 = 4;
+int OUTPUT1 = 0;
+
+int MotorFuerzaENB = 2; /* GPIO02(D4) -> Motor-A Enable */
+int MotorDirectionENA = 14; /* GPIO14(D5) -> Motor-B Enable */
+void setup() {
+  Serial.begin (9600);
+  pinMode (OUTPUT1, OUTPUT);
+  pinMode (OUTPUT2, OUTPUT);
+  pinMode (OUTPUT3, OUTPUT);
+  pinMode (OUTPUT4, OUTPUT);
+  pinMode(MotorFuerzaENB, OUTPUT); 
+  pinMode(MotorDirectionENA, OUTPUT);
+
+
+
+
+
+
+
+if (linea1.indexOf("ADELANTE") > 0) { //Buscamos un LED=ON en la 1°Linea
+      digitalWrite(MotorFuerzaENB,HIGH);
+      digitalWrite(MotorDirectionENA,HIGH);
+      digitalWrite(OUTPUT1, 0);
+      digitalWrite(OUTPUT2, 0);
+      digitalWrite(OUTPUT3, 1);
+      digitalWrite(OUTPUT4, 0);
+    }
+    if (linea1.indexOf("ATRAS") > 0)  {
+      digitalWrite(MotorFuerzaENB,HIGH);
+      digitalWrite(MotorDirectionENA,HIGH);
+      digitalWrite(OUTPUT1, 0);
+      digitalWrite(OUTPUT2, 0);
+      digitalWrite(OUTPUT3, 0);
+      digitalWrite(OUTPUT4, 1);
+    }
+    if (linea1.indexOf("DERECHA") > 0)  {
+      digitalWrite(MotorFuerzaENB,HIGH);
+      digitalWrite(MotorDirectionENA,HIGH);
+      digitalWrite(OUTPUT1, 0);
+      digitalWrite(OUTPUT2, 1);
+      digitalWrite(OUTPUT3, 0);
+      digitalWrite(OUTPUT4, 0);
+    }
+    if (linea1.indexOf("IZQUIERDA") > 0)  {
+      digitalWrite(MotorFuerzaENB,HIGH);
+      digitalWrite(MotorDirectionENA,HIGH);
+      digitalWrite(OUTPUT1, 1);
+      digitalWrite(OUTPUT2, 0);
+      digitalWrite(OUTPUT3, 0);
+      digitalWrite(OUTPUT4, 0);
+    }
+     if (linea1.indexOf("PARAR") > 0)  {
+      digitalWrite(MotorFuerzaENB,HIGH);
+      digitalWrite(MotorDirectionENA,HIGH);
+      digitalWrite(OUTPUT1, 0);
+      digitalWrite(OUTPUT2, 0);
+      digitalWrite(OUTPUT3, 0);
+      digitalWrite(OUTPUT4, 0);
